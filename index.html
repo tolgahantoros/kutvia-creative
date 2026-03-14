@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kutvia Creative | Marka ve Tasarim Studyo</title>
+  <title>Kutvia Creative | Marka ve Tasarım Stüdyosu</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -13,54 +13,97 @@
   <header class="site-header">
     <nav class="nav container">
       <a class="logo" href="#ana">Kutvia Creative</a>
-      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navMenu" aria-label="Menu">
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navMenu" aria-label="Menüyü aç veya kapat">
         <span></span><span></span><span></span>
       </button>
       <ul class="menu" id="navMenu">
+        <li><a href="#ana">Ana Sayfa</a></li>
         <li><a href="#projeler">Projeler</a></li>
         <li><a href="#hizmetler">Hizmetler</a></li>
-        <li><a href="#iletisim">Iletisim</a></li>
+        <li><a href="#iletisim">İletişim</a></li>
       </ul>
     </nav>
   </header>
 
   <main id="ana">
     <section class="hero container">
-      <p class="eyebrow">Marka Hikayesi - Deneyim Tasarimi</p>
-      <h1>Dikkat ceken degil, akilda kalan markalar tasarliyoruz.</h1>
-      <p class="lead">Kutvia Creative; strateji, görsel dil ve dijital deneyimi tek bir yaratıcı hat üzerinde birleştirir.</p>
-      <a class="btn" href="#projeler">Calismalari Gor</a>
+      <p class="eyebrow">Marka Hikâyesi • Deneyim Tasarımı</p>
+      <h1>Dikkat çeken değil, akılda kalan markalar tasarlıyoruz.</h1>
+      <p class="lead">Kutvia Creative; strateji, görsel kimlik ve dijital deneyimi tek bir yaratıcı çizgide buluşturur. Markanızın sesini netleştirir, etkisini büyütür.</p>
+      <a class="btn" href="#projeler">Çalışmaları İncele</a>
     </section>
 
     <section class="works container" id="projeler">
-      <article class="tile tile-a"><h2>Marka Kimligi</h2></article>
-      <article class="tile tile-b"><h2>UI/UX Uygulamalari</h2></article>
-      <article class="tile tile-c"><h2>Lansman Kampanyalari</h2></article>
+      <article class="tile tile-a"><h2>Marka Kimliği</h2></article>
+      <article class="tile tile-b"><h2>UI/UX Uygulamaları</h2></article>
+      <article class="tile tile-c"><h2>Lansman Kampanyaları</h2></article>
     </section>
 
     <section class="services container" id="hizmetler">
       <article>
-        <h3>Konumlandirma ve Strateji</h3>
-        <p>Markanizin sesi, vaadi ve hedef kitlesi icin net bir stratejik temel kurariz.</p>
+        <h3>Konumlandırma ve Strateji</h3>
+        <p>Markanızın sesi, vaadi ve hedef kitlesi için güçlü bir stratejik temel kurarız.</p>
       </article>
       <article>
-        <h3>Dijital Tasarim Sistemi</h3>
-        <p>Urun ekiplerinin hizli calisabilecegi, olceklenebilir tasarim dili insa ederiz.</p>
+        <h3>Dijital Tasarım Sistemi</h3>
+        <p>Ürün ekiplerinin hızlı ilerleyebileceği, ölçeklenebilir bir tasarım dili inşa ederiz.</p>
       </article>
       <article>
-        <h3>Kreatif Yonlendirme</h3>
-        <p>Kampanya, sosyal medya ve reklam tarafinda tutarli bir gorunur dil olustururuz.</p>
+        <h3>Kreatif Yönlendirme</h3>
+        <p>Kampanya, sosyal medya ve reklam tarafında tutarlı bir görünür dil oluştururuz.</p>
       </article>
     </section>
 
     <section class="contact container" id="iletisim">
-      <h2>Markani bir ust seviyeye tasiyalim</h2>
-      <p>iletisim: hello@kutvia-creative.com</p>
+      <div class="contact-shell">
+        <div class="contact-copy">
+          <p class="contact-kicker">İletişim</p>
+          <h2>Markanı bir üst seviyeye birlikte taşıyalım</h2>
+          <p>Projeni paylaş, ekibimiz en geç 24 saat içinde sana dönüş yapsın. Strateji, tasarım ve uygulama adımlarını birlikte netleştirelim.</p>
+
+          <div class="contact-cards">
+            <article>
+              <h3>E-posta</h3>
+              <a href="mailto:hello@kutvia-creative.com">hello@kutvia-creative.com</a>
+            </article>
+            <article>
+              <h3>Telefon</h3>
+              <a href="tel:+902120000000">+90 (212) 000 00 00</a>
+            </article>
+            <article>
+              <h3>Çalışma Saatleri</h3>
+              <p>Pazartesi - Cuma · 09:00 - 18:30</p>
+            </article>
+          </div>
+        </div>
+
+        <form class="contact-form" action="#" method="post">
+          <label for="adSoyad">Ad Soyad</label>
+          <input id="adSoyad" name="adSoyad" type="text" placeholder="Adınızı ve soyadınızı yazın" required />
+
+          <label for="eposta">E-posta</label>
+          <input id="eposta" name="eposta" type="email" placeholder="ornek@eposta.com" required />
+
+          <label for="hizmet">İlgilendiğiniz hizmet</label>
+          <select id="hizmet" name="hizmet" required>
+            <option value="" selected disabled>Bir seçenek seçin</option>
+            <option value="marka-stratejisi">Marka Stratejisi</option>
+            <option value="ui-ux">UI/UX Tasarımı</option>
+            <option value="kreatif-yonlendirme">Kreatif Yönlendirme</option>
+            <option value="diger">Diğer</option>
+          </select>
+
+          <label for="mesaj">Proje Özeti</label>
+          <textarea id="mesaj" name="mesaj" rows="5" placeholder="Kısaca hedefinizi, kapsamı ve zaman planınızı paylaşın" required></textarea>
+
+          <button type="submit">Mesajı Gönder</button>
+        </form>
+      </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container"><p>2026 Kutvia Creative. Tum haklari saklidir.</p></div>
+    <div class="container"><p>2026 Kutvia Creative. Tüm hakları saklıdır.</p></div>
   </footer>
 
   <script src="assets/js/main.js"></script>
