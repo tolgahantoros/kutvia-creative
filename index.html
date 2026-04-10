@@ -3,107 +3,335 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kutvia Creative | Marka ve Tasarım Stüdyosu</title>
+  <title>Kutvia Creative | Kurumsal Marka ve Deneyim Tasarımı</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-  <header class="site-header">
-    <nav class="nav container">
-      <a class="logo" href="#ana">Kutvia Creative</a>
-      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navMenu" aria-label="Menüyü aç veya kapat">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="menu" id="navMenu">
-        <li><a href="#ana">Ana Sayfa</a></li>
-        <li><a href="#projeler">Projeler</a></li>
-        <li><a href="#hizmetler">Hizmetler</a></li>
-        <li><a href="#iletisim">İletişim</a></li>
-      </ul>
+  <!-- Header & Navigation -->
+  <header class="header">
+    <nav class="navbar container">
+      <div class="nav-wrapper">
+        <a href="#" class="logo">Kutvia Creative</a>
+        <button class="hamburger" id="hamburger" aria-label="Menü aç/kapat">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#why">Neden Biz</a></li>
+          <li><a href="#services">Hizmetler</a></li>
+          <li><a href="#works">Çalışmalar</a></li>
+          <li><a href="#contact">İletişim</a></li>
+        </ul>
+      </div>
     </nav>
   </header>
 
-  <main id="ana">
-    <section class="hero container">
-      <p class="eyebrow">Marka Hikâyesi • Deneyim Tasarımı</p>
-      <h1>Dikkat çeken değil, akılda kalan markalar tasarlıyoruz.</h1>
-      <p class="lead">Kutvia Creative; strateji, görsel kimlik ve dijital deneyimi tek bir yaratıcı çizgide buluşturur. Markanızın sesini netleştirir, etkisini büyütür.</p>
-      <a class="btn" href="#projeler">Çalışmaları İncele</a>
-    </section>
-
-    <section class="works container" id="projeler">
-      <article class="tile tile-a"><h2>Marka Kimliği</h2></article>
-      <article class="tile tile-b"><h2>UI/UX Uygulamaları</h2></article>
-      <article class="tile tile-c"><h2>Lansman Kampanyaları</h2></article>
-    </section>
-
-    <section class="services container" id="hizmetler">
-      <article>
-        <h3>Konumlandırma ve Strateji</h3>
-        <p>Markanızın sesi, vaadi ve hedef kitlesi için güçlü bir stratejik temel kurarız.</p>
-      </article>
-      <article>
-        <h3>Dijital Tasarım Sistemi</h3>
-        <p>Ürün ekiplerinin hızlı ilerleyebileceği, ölçeklenebilir bir tasarım dili inşa ederiz.</p>
-      </article>
-      <article>
-        <h3>Kreatif Yönlendirme</h3>
-        <p>Kampanya, sosyal medya ve reklam tarafında tutarlı bir görünür dil oluştururuz.</p>
-      </article>
-    </section>
-
-    <section class="contact container" id="iletisim">
-      <div class="contact-shell">
-        <div class="contact-copy">
-          <p class="contact-kicker">İletişim</p>
-          <h2>Markanı bir üst seviyeye birlikte taşıyalım</h2>
-          <p>Projeni paylaş, ekibimiz en geç 24 saat içinde sana dönüş yapsın. Strateji, tasarım ve uygulama adımlarını birlikte netleştirelim.</p>
-
-          <div class="contact-cards">
-            <article>
-              <h3>E-posta</h3>
-              <a href="mailto:hello@kutvia-creative.com">hello@kutvia-creative.com</a>
-            </article>
-            <article>
-              <h3>Telefon</h3>
-              <a href="tel:+902120000000">+90 (212) 000 00 00</a>
-            </article>
-            <article>
-              <h3>Çalışma Saatleri</h3>
-              <p>Pazartesi - Cuma · 09:00 - 18:30</p>
-            </article>
+  <!-- Hero Section -->
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <span class="badge">Kutvia Creative - Tasarım ve Deneyim</span>
+          <h1>Kurum kimliğinizi rekabet avantajına dönüştüren tasarım sistemleri</h1>
+          <p>Kutvia Creative; marka stratejisi, görsel kimlik ve dijital deneyim alanlarını tek bir yönetim çerçevesinde birleştirir. Markanızın konumunu netleştirir, iletişim etkisini kalıcı biçimde güçlendirir.</p>
+          <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary">Çalışma Başlatalım</a>
+            <a href="#services" class="btn btn-secondary">Hizmetleri İncele</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-number">100+</span>
+              <span class="stat-label">Marka Projesi</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">99%</span>
+              <span class="stat-label">Müşteri Mutluluğu</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">15+</span>
+              <span class="stat-label">Yıl Deneyim</span>
+            </div>
           </div>
         </div>
+      </div>
+      <div class="hero-visual">
+        <div class="geometric-shape shape-1"></div>
+        <div class="geometric-shape shape-2"></div>
+      </div>
+    </section>
 
-        <form class="contact-form" action="#" method="post">
-          <label for="adSoyad">Ad Soyad</label>
-          <input id="adSoyad" name="adSoyad" type="text" placeholder="Adınızı ve soyadınızı yazın" required />
+    <!-- Why Section -->
+    <section class="features" id="why">
+      <div class="container">
+        <div class="section-header">
+          <h2>Neden Kutvia Creative?</h2>
+          <p>Markanızı yeniden tasarladığımız şirketler neler kazanıyor</p>
+        </div>
+        <div class="features-grid">
+          <article class="feature-card">
+            <div class="feature-icon">🎨</div>
+            <h3>Stratejik Tasarım</h3>
+            <p>Her proje derinlemesine marka araştırması ve analizi ile başlar. Markanızın özünü anlar, bunu güçlü görsellere dönüştürürüz.</p>
+          </article>
 
-          <label for="eposta">E-posta</label>
-          <input id="eposta" name="eposta" type="email" placeholder="ornek@eposta.com" required />
+          <article class="feature-card">
+            <div class="feature-icon">🔍</div>
+            <h3>Konumlandırma</h3>
+            <p>Markanızın sesi, vaadi ve hedef kitlesi için güçlü bir stratejik temel kurarız. Pazar içinde konumunuzu netleştirir, diferansiyel avantaj sağlarız.</p>
+          </article>
 
-          <label for="hizmet">İlgilendiğiniz hizmet</label>
-          <select id="hizmet" name="hizmet" required>
-            <option value="" selected disabled>Bir seçenek seçin</option>
-            <option value="marka-stratejisi">Marka Stratejisi</option>
-            <option value="ui-ux">UI/UX Tasarımı</option>
-            <option value="kreatif-yonlendirme">Kreatif Yönlendirme</option>
-            <option value="diger">Diğer</option>
-          </select>
+          <article class="feature-card">
+            <div class="feature-icon">📐</div>
+            <h3>Tasarım Dili</h3>
+            <p>Ölçeklenebilir, tutarlı bir tasarım sistemi inşa ederiz. Bütün dokunma noktalarında markanız konsistent biçimde konuşur.</p>
+          </article>
 
-          <label for="mesaj">Proje Özeti</label>
-          <textarea id="mesaj" name="mesaj" rows="5" placeholder="Kısaca hedefinizi, kapsamı ve zaman planınızı paylaşın" required></textarea>
+          <article class="feature-card">
+            <div class="feature-icon">✨</div>
+            <h3>Görsel Kimlik</h3>
+            <p>Logo, tipografi, renk paleti, detaylar. Markanızın karakterini tam olarak yansıtan görsel sistem geliştiririz.</p>
+          </article>
 
-          <button type="submit">Mesajı Gönder</button>
-        </form>
+          <article class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3>Uygulamalar</h3>
+            <p>Reklam, sosyal medya, web tasarımı, basılı malzemeler. Tüm kanallarında markanız uyumlu, güçlü görünür.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon">💼</div>
+            <h3>Kurumsal Bütünlük</h3>
+            <p>İç ve dış iletişim çerçevelerini bütünleştiririz. Markanız, çalışanlarınız ve müşterileriniz için tutarlı bir deneyim olur.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-header">
+          <h2>Hizmetlerimiz</h2>
+          <p>Tam kapsamlı marka ve tasarım çözümleri</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-item">
+            <h3>Marka Kimliği</h3>
+            <p>Markanızın vizüel yüzünü oluşturuyoruz. Logo, renk sistemi, tipografi ve tüm tasarım öğelerini eşgüdümlü biçimde geliştiririz.</p>
+            <ul class="tech-list">
+              <li>Logo Tasarımı</li>
+              <li>Kalentery Sistemi</li>
+              <li>Renk & Tipografi</li>
+              <li>Brand Guidelines</li>
+            </ul>
+          </div>
+
+          <div class="service-item">
+            <h3>Konumlandırma & Strateji</h3>
+            <p>Markanızın hedef kitleyi, pazardaki konumu ve sesi tanımlarız. Stratejik bir temel oluştururuz ki tasarım bu temele dayansın.</p>
+            <ul class="tech-list">
+              <li>Marka Araştırması</li>
+              <li>Kompetitor Analizi</li>
+              <li>Positioning Stratejisi</li>
+              <li>Marka Sesi Tanımı</li>
+            </ul>
+          </div>
+
+          <div class="service-item">
+            <h3>UI/UX Uygulamaları</h3>
+            <p>Web ve mobil platformlarda markanızın tasarım sistemini uygularız. Kullanıcı deneyimi ile tasarım birlikteliğini sağlarız.</p>
+            <ul class="tech-list">
+              <li>Web Tasarımı</li>
+              <li>Mobil Arayüzü</li>
+              <li>Prototyping</li>
+              <li>Kullanıcı Testi</li>
+            </ul>
+          </div>
+
+          <div class="service-item">
+            <h3>Dijital Deneyim Tasarımı</h3>
+            <p>Müşteri yolculuğunun her adımında markanızı doğru şekilde sunuyoruz. Dijital ve fiziksel deneyimleri entegre ederiz.</p>
+            <ul class="tech-list">
+              <li>User Journey Mapping</li>
+              <li>Deneyim Tasarımı</li>
+              <li>Interaksiyon Tasarımı</li>
+              <li>Animasyon & Etkileşim</li>
+            </ul>
+          </div>
+
+          <div class="service-item">
+            <h3>Kreatif Yönlendirme</h3>
+            <p>Kampanya, sosyal medya ve reklam tarafında tutarlı bir görünür dil oluştururuz. İçeriğiniz markanızla tam uyum içinde konuşur.</p>
+            <ul class="tech-list">
+              <li>Kampanya Konsepti</li>
+              <li>Sosyal Medya Tasarımı</li>
+              <li>Reklam Tasarımı</li>
+              <li>İçerik Yönetimi</li>
+            </ul>
+          </div>
+
+          <div class="service-item">
+            <h3>Basılı & Kurumsal Tasarım</h3>
+            <p>Karttan broşüre, ambalajdan çevre tasarımına kadar. Fiziksel biçimlerde markanızı bütünlüklü sunuyoruz.</p>
+            <ul class="tech-list">
+              <li>Kurumsal Kimlik</li>
+              <li>Basılı Malzemeler</li>
+              <li>Paketaj Tasarımı</li>
+              <li>Çevre Tasarımı</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Works Section -->
+    <section class="portfolio" id="works">
+      <div class="container">
+        <div class="section-header">
+          <h2>Son Çalışmalarımız</h2>
+          <p>Başarıyla tamamlanan marka ve tasarım projeleri</p>
+        </div>
+        <div class="portfolio-grid">
+          <article class="portfolio-card">
+            <div class="portfolio-image">
+              <div class="image-placeholder">🎨</div>
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-tag">Marka Kimliği</span>
+              <h3>Teknoloji Startup'ı Rebranding</h3>
+              <p>Hızlı büyüyen bir startup'ın kurumsal kimliğini yeniden tasarladı. Logo, renk sistemi ve tüm dijital uygulamaları yeniledik.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card">
+            <div class="portfolio-image">
+              <div class="image-placeholder">✨</div>
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-tag">UI/UX Tasarımı</span>
+              <h3>E-Ticaret Platformu Tasarımı</h3>
+              <p>Kurumsal bir alışveriş platformunun tüm dijital deneyimini tasarladık. Kullanıcı-odaklı arayüz ve sistemler oluşturduk.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card">
+            <div class="portfolio-image">
+              <div class="image-placeholder">🎯</div>
+            </div>
+            <div class="portfolio-content">
+              <span class="portfolio-tag">Konumlandırma & Strateji</span>
+              <h3>Lüks Marka Stratejisi</h3>
+              <p>Premium bir moda markasının stratejisini geliştirdik. Konumlandırması, sesi ve görsel dili tam sentezlemesini sağladık.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2>Markanızı Birlikte Tasarlayalım</h2>
+          <p>Projeniz hakkında bize bilgi verin, çalışma detaylarını konuşalım</p>
+        </div>
+        <div class="contact-wrapper">
+          <div class="contact-info">
+            <div class="info-item">
+              <h4>Adres</h4>
+              <p>İstanbul, Türkiye</p>
+            </div>
+            <div class="info-item">
+              <h4>E-posta</h4>
+              <a href="mailto:hello@kutvia-creative.com">hello@kutvia-creative.com</a>
+            </div>
+            <div class="info-item">
+              <h4>Telefon</h4>
+              <a href="tel:+902120000000">+90 (212) 000 00 00</a>
+            </div>
+            <div class="info-item">
+              <h4>Çalışma Saatleri</h4>
+              <p>Pazartesi - Cuma: 09:00 - 18:30<br>Cumartesi - Pazar: Kapalı</p>
+            </div>
+          </div>
+
+          <form class="contact-form" action="#" method="post">
+            <div class="form-group">
+              <label for="name">Ad Soyad *</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">E-posta *</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+              <label for="company">Şirket Adı</label>
+              <input type="text" id="company" name="company">
+            </div>
+
+            <div class="form-group">
+              <label for="project-type">Proje Türü *</label>
+              <select id="project-type" name="project-type" required>
+                <option value="">Seçin...</option>
+                <option value="branding">Marka Kimliği</option>
+                <option value="strategy">Konumlandırma & Strateji</option>
+                <option value="ui-ux">UI/UX Tasarımı</option>
+                <option value="digital">Dijital Deneyim</option>
+                <option value="creative">Kreatif Yönlendirme</option>
+                <option value="print">Basılı & Kurumsal</option>
+                <option value="other">Diğer</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Proje Açıklaması *</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Gönder</button>
+          </form>
+        </div>
       </div>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer class="footer">
-    <div class="container"><p>2026 Kutvia Creative. Tüm hakları saklıdır.</p></div>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Kutvia Creative</h4>
+          <p>Marka ve deneyim tasarımı ile işletmenizi güçlendiriyoruz.</p>
+          <p style="font-size: 0.85rem; margin-top: 12px; color: rgba(255, 255, 255, 0.5);">Kutvia'nın Yaratıcı Tasarım Alt Markası</p>
+        </div>
+        <div class="footer-links">
+          <h4>Bağlantılar</h4>
+          <ul>
+            <li><a href="#why">Neden Biz</a></li>
+            <li><a href="#services">Hizmetler</a></li>
+            <li><a href="#works">Çalışmalar</a></li>
+            <li><a href="#contact">İletişim</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h4>Bizi Takip Edin</h4>
+          <div class="social-links">
+            <a href="#" aria-label="LinkedIn">LinkedIn</a>
+            <a href="#" aria-label="Instagram">Instagram</a>
+            <a href="#" aria-label="Twitter">Twitter</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Kutvia Creative. Tüm hakları saklıdır. | <a href="#">Gizlilik Politikası</a></p>
+      </div>
+    </div>
   </footer>
 
   <script src="assets/js/main.js"></script>
