@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://creative.kutvia.com/sitemap.xml
