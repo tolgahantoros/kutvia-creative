@@ -98,7 +98,7 @@
   const form = document.getElementById('contactForm') || document.querySelector('.contact-form');
   const modal = document.getElementById('contactModal');
   if (form) {
-    form.addEventListener('submit', e => {
+    form.addEventListener('submit', async e => {
       e.preventDefault();
       const btn = form.querySelector('button[type="submit"]');
       if (!btn) return;
@@ -106,7 +106,19 @@
       const original = span.textContent;
       span.textContent = 'Gönderiliyor...';
       btn.disabled = true;
-      setTimeout(() => {
+
+      const payload = Object.fromEntries(new FormData(form).entries());
+      payload.page = document.title;
+      payload.host = window.location.hostname;
+      payload.path = window.location.pathname;
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json; charset=UTF-8' },
+          body: JSON.stringify(payload)
+        });
+        if (!res.ok) throw new Error('Mail gönderilemedi');
         form.reset();
         btn.disabled = false;
         if (modal) {
@@ -114,11 +126,16 @@
           modal.setAttribute('aria-hidden', 'false');
           span.textContent = original;
         } else {
-          span.textContent = '✓ Mesajınız Alındı!';
+          span.textContent = '✓ Mesajınız alındı!';
           btn.style.background = 'linear-gradient(135deg, #10B981, #0891B2)';
           setTimeout(() => { span.textContent = original; btn.style.background = ''; }, 3500);
         }
-      }, 1100);
+      } catch (err) {
+        btn.disabled = false;
+        span.textContent = 'Tekrar deneyin';
+        btn.style.background = 'linear-gradient(135deg, #EF4444, #F97316)';
+        setTimeout(() => { span.textContent = original; btn.style.background = ''; }, 3500);
+      }
     });
   }
   if (modal) {
