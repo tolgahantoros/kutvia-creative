@@ -98,16 +98,58 @@
   const form = document.getElementById('contactForm') || document.querySelector('.contact-form');
   const modal = document.getElementById('contactModal');
   if (form) {
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const captchaWidget = form.querySelector('.cf-turnstile');
+    const captchaStatus = document.getElementById('captchaStatus');
+    const phoneInput = form.querySelector('[name="phone"]');
+    const emailInput = form.querySelector('[name="email"]');
+
+    function setCaptchaState(state, message) {
+      if (submitBtn && captchaWidget) submitBtn.disabled = state !== 'success';
+      if (!captchaStatus) return;
+      captchaStatus.textContent = message;
+      captchaStatus.classList.toggle('is-success', state === 'success');
+      captchaStatus.classList.toggle('is-error', state === 'error');
+    }
+
+    window.contactCaptchaReady = () => setCaptchaState('success', 'Güvenlik doğrulaması tamamlandı.');
+    window.contactCaptchaExpired = () => setCaptchaState('error', 'Doğrulamanın süresi doldu. Lütfen yeniden deneyin.');
+    window.contactCaptchaError = () => setCaptchaState('error', 'Güvenlik doğrulaması yüklenemedi. Lütfen sayfayı yenileyin.');
+
+    if (phoneInput) {
+      phoneInput.addEventListener('input', () => {
+        phoneInput.value = phoneInput.value.replace(/\D/g, '').slice(0, 15);
+      });
+    }
+    if (emailInput) {
+      emailInput.addEventListener('input', () => emailInput.setCustomValidity(''));
+    }
+
     form.addEventListener('submit', async e => {
       e.preventDefault();
-      const btn = form.querySelector('button[type="submit"]');
+      if (phoneInput) phoneInput.value = phoneInput.value.replace(/\D/g, '').slice(0, 15);
+      if (emailInput) {
+        const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(emailInput.value.trim());
+        emailInput.setCustomValidity(validEmail ? '' : 'Geçerli bir e-posta adresi yazın.');
+      }
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const btn = submitBtn;
       if (!btn) return;
       const span = btn.querySelector('span') || btn;
       const original = span.textContent;
-      span.textContent = 'Gönderiliyor...';
-      btn.disabled = true;
 
       const payload = Object.fromEntries(new FormData(form).entries());
+      if (captchaWidget && !payload['cf-turnstile-response']) {
+        setCaptchaState('error', 'Lütfen güvenlik doğrulamasını tamamlayın.');
+        return;
+      }
+
+      span.textContent = 'Gönderiliyor...';
+      btn.disabled = true;
       payload.page = document.title;
       payload.host = window.location.hostname;
       payload.path = window.location.pathname;
@@ -118,9 +160,15 @@
           headers: { 'Content-Type': 'application/json; charset=UTF-8' },
           body: JSON.stringify(payload)
         });
-        if (!res.ok) throw new Error('Mail gönderilemedi');
+        const result = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(result.error || 'Mail gönderilemedi');
         form.reset();
-        btn.disabled = false;
+        if (captchaWidget && window.turnstile) {
+          window.turnstile.reset(captchaWidget);
+          setCaptchaState('waiting', 'Güvenlik doğrulaması bekleniyor.');
+        } else {
+          btn.disabled = false;
+        }
         if (modal) {
           modal.classList.add('open');
           modal.setAttribute('aria-hidden', 'false');
@@ -131,8 +179,16 @@
           setTimeout(() => { span.textContent = original; btn.style.background = ''; }, 3500);
         }
       } catch (err) {
-        btn.disabled = false;
-        span.textContent = 'Tekrar deneyin';
+        const verificationFailed = /verification/i.test(err.message);
+        if (captchaWidget && window.turnstile) window.turnstile.reset(captchaWidget);
+        if (captchaWidget) {
+          setCaptchaState('error', verificationFailed
+            ? 'Güvenlik doğrulaması başarısız. Lütfen yeniden deneyin.'
+            : 'Mesaj gönderilemedi. Lütfen tekrar deneyin.');
+        } else {
+          btn.disabled = false;
+        }
+        span.textContent = verificationFailed ? 'Doğrulamayı Yenile' : 'Tekrar Deneyin';
         btn.style.background = 'linear-gradient(135deg, #EF4444, #F97316)';
         setTimeout(() => { span.textContent = original; btn.style.background = ''; }, 3500);
       }

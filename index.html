@@ -21,12 +21,13 @@
   <meta property="og:description" content="Marka stratejisi, görsel kimlik ve dijital deneyim tek çatı altında." />
   <meta property="og:url" content="https://creative.kutvia.com/" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='64' y2='64'%3E%3Cstop stop-color='%23F59E0B'/%3E%3Cstop offset='1' stop-color='%23EC4899'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='38' font-weight='bold' fill='white' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" href="/icon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>:root { --accent: #F59E0B; --accent-2: #EC4899; --accent-3: #8B5CF6; }</style>
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="assets/css/style.css?v=20260923-turnstile" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -217,17 +218,20 @@
         </div>
         <div class="contact-grid">
           <div class="contact-info reveal">
-            <div class="contact-item"><div class="contact-icon">✉</div><div><h4>E-posta</h4><p><a href="mailto:creative@kutvia.com">creative@kutvia.com</a></p></div></div>
-            <div class="contact-item"><div class="contact-icon">☎</div><div><h4>Telefon</h4><p><a href="tel:+905455713331">+90 (545) 571 33 31</a></p></div></div>
-            <div class="contact-item"><div class="contact-icon">⊚</div><div><h4>Adres</h4><p>ATATÜRK MAH. İSMET İNÖNÜ BLV. VITRIN BURHAN NO: 23<br />İÇ KAPI NO: 9 MEZİTLİ / MERSİN</p></div></div>
-            <div class="contact-item"><div class="contact-icon">⏱</div><div><h4>Çalışma Saatleri</h4><p>Hafta içi 09:00 - 18:30</p></div></div>
+            <div class="contact-item"><div class="contact-icon">✉</div><div><h3>E-posta</h3><p><a href="mailto:creative@kutvia.com">creative@kutvia.com</a></p></div></div>
+            <div class="contact-item"><div class="contact-icon">☎</div><div><h3>Telefon</h3><p><a href="tel:+905455713331">+90 (545) 571 33 31</a></p></div></div>
+            <div class="contact-item"><div class="contact-icon">⊚</div><div><h3>Adres</h3><p>ATATÜRK MAH. İSMET İNÖNÜ BLV. VITRIN BURHAN NO: 23<br />İÇ KAPI NO: 9 MEZİTLİ / MERSİN</p></div></div>
+            <div class="contact-item"><div class="contact-icon">⏱</div><div><h3>Çalışma Saatleri</h3><p>Hafta içi 09:00 - 18:30</p></div></div>
           </div>
           <form class="contact-form reveal" id="contactForm" action="/api/contact" method="post" accept-charset="UTF-8">
             <div class="form-row">
               <div class="form-group"><label for="name">Ad Soyad</label><input type="text" id="name" name="name" placeholder="Adınız ve soyadınız" required /></div>
-              <div class="form-group"><label for="email">E-posta</label><input type="email" id="email" name="email" placeholder="ornek@email.com" required /></div>
+              <div class="form-group"><label for="email">E-posta</label><input type="email" id="email" name="email" placeholder="ornek@email.com" autocomplete="email" maxlength="160" required /></div>
             </div>
-            <div class="form-group"><label for="company">Şirket Adı</label><input type="text" id="company" name="company" placeholder="Şirketiniz" /></div>
+            <div class="form-row">
+              <div class="form-group"><label for="phone">Telefon / WhatsApp</label><input type="tel" id="phone" name="phone" placeholder="05455713331" inputmode="numeric" pattern="[0-9]{10,15}" maxlength="15" autocomplete="tel" required /></div>
+              <div class="form-group"><label for="company">Şirket Adı</label><input type="text" id="company" name="company" placeholder="Şirketiniz" autocomplete="organization" /></div>
+            </div>
             <div class="form-group">
               <label for="project-type">Proje Türü</label>
               <select id="project-type" name="project-type" required>
@@ -241,7 +245,12 @@
               </select>
             </div>
             <div class="form-group"><label for="message">Proje Açıklaması</label><textarea id="message" name="message" rows="5" placeholder="Projeniz hakkında kısaca bilgi verin..." required></textarea></div>
-            <button type="submit" class="btn btn-primary btn-full"><span>Mesaj Gönder</span></button>
+            <div class="form-honeypot" aria-hidden="true"><label for="contactWebsite">Web sitesi</label><input type="text" id="contactWebsite" name="contact_website" tabindex="-1" autocomplete="off" /></div>
+            <div class="captcha-field">
+              <div class="cf-turnstile" data-sitekey="0x4AAAAAAFAYFwFBei0dGEZS" data-theme="light" data-size="flexible" data-language="tr" data-action="contact" data-callback="contactCaptchaReady" data-expired-callback="contactCaptchaExpired" data-error-callback="contactCaptchaError"></div>
+              <p class="captcha-status" id="captchaStatus" aria-live="polite">Güvenlik doğrulaması bekleniyor.</p>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" disabled><span>Mesaj Gönder</span></button>
           </form>
         </div>
       </div>
@@ -260,7 +269,7 @@
           </div>
         </div>
         <div class="footer-col">
-          <h5>Kutvia Ailesi</h5>
+          <h2>Kutvia Ailesi</h2>
           <ul>
             <li><a href="https://kutvia.com/">Kutvia</a></li>
             <li><a href="https://security.kutvia.com/">Security</a></li>
@@ -270,7 +279,7 @@
           </ul>
         </div>
         <div class="footer-col">
-          <h5>Hizmetler</h5>
+          <h2>Hizmetler</h2>
           <ul>
             <li><a href="#hizmetler">Marka Kimliği</a></li>
             <li><a href="#hizmetler">UI/UX Tasarımı</a></li>
@@ -279,7 +288,7 @@
           </ul>
         </div>
         <div class="footer-col">
-          <h5>Şirket</h5>
+          <h2>Şirket</h2>
           <ul>
             <li><a href="#neden">Neden Biz</a></li>
             <li><a href="#surec">Süreç</a></li>
@@ -295,6 +304,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=20260730-contact"></script>
+  <script src="assets/js/main.js?v=20260923-turnstile"></script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </body>
 </html>
